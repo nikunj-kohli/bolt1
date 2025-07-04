@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import Header from './Header';
+import ThemeToggle from './ThemeToggle';
 import { Toaster } from 'react-hot-toast';
 
 interface LayoutProps {
@@ -7,29 +8,77 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen relative">
+      {/* 3D Background */}
+      <div className="bg-3d">
+        {/* Mountains for landscape effect */}
+        <div className="floating-mountain"></div>
+        <div className="floating-mountain"></div>
+        <div className="floating-mountain"></div>
+        
+        {/* Clouds/Moons */}
+        <div className="floating-cloud"></div>
+        <div className="floating-cloud"></div>
+        <div className="floating-cloud"></div>
+        
+        {/* Stars for dark mode */}
+        {theme === 'dark' && (
+          <>
+            <div className="floating-star"></div>
+            <div className="floating-star"></div>
+            <div className="floating-star"></div>
+            <div className="floating-star"></div>
+            <div className="floating-star"></div>
+            <div className="floating-star"></div>
+          </>
+        )}
+      </div>
+
       <Header />
-      <main className="flex-1">
+      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+      
+      <main className="flex-1 relative z-10">
         {children}
       </main>
+      
       <Toaster
         position="top-right"
         toastOptions={{
           duration: 4000,
           style: {
-            background: '#fff',
-            color: '#333',
-            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+            background: 'var(--glass-bg)',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--glass-border)',
+            borderRadius: '12px',
+            backdropFilter: 'blur(20px)',
+            boxShadow: '0 8px 32px var(--shadow-color)',
           },
           success: {
-            style: {
-              border: '1px solid #10B981',
+            iconTheme: {
+              primary: 'var(--accent-primary)',
+              secondary: 'white',
             },
           },
           error: {
-            style: {
-              border: '1px solid #EF4444',
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: 'white',
             },
           },
         }}

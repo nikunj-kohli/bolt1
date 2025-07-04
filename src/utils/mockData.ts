@@ -9,6 +9,8 @@ export const mockBusinesses = [
     address: '123 Main St, Downtown',
     phone: '+1 (555) 123-4567',
     email: 'info@luxehairstudio.com',
+    latitude: 28.6139, // Delhi coordinates
+    longitude: 77.2090,
     openingHours: {
       monday: { open: '09:00', close: '18:00' },
       tuesday: { open: '09:00', close: '18:00' },
@@ -31,6 +33,8 @@ export const mockBusinesses = [
     address: '456 Wellness Ave, Spa District',
     phone: '+1 (555) 234-5678',
     email: 'hello@serenityspa.com',
+    latitude: 28.6129,
+    longitude: 77.2295,
     openingHours: {
       monday: { open: '10:00', close: '19:00' },
       tuesday: { open: '10:00', close: '19:00' },
@@ -53,6 +57,8 @@ export const mockBusinesses = [
     address: '789 Art Street, Creative Quarter',
     phone: '+1 (555) 345-6789',
     email: 'bookings@inkmaststattoo.com',
+    latitude: 28.6169,
+    longitude: 77.2090,
     openingHours: {
       monday: { closed: true, open: '', close: '' },
       tuesday: { open: '12:00', close: '20:00' },
@@ -75,6 +81,8 @@ export const mockBusinesses = [
     address: '321 Vintage Lane, Old Town',
     phone: '+1 (555) 456-7890',
     email: 'appointments@classicbarberco.com',
+    latitude: 28.6109,
+    longitude: 77.2295,
     openingHours: {
       monday: { open: '08:00', close: '18:00' },
       tuesday: { open: '08:00', close: '18:00' },
@@ -97,6 +105,8 @@ export const mockBusinesses = [
     address: '654 Beauty Blvd, Fashion District',
     phone: '+1 (555) 567-8901',
     email: 'info@glowbeautylounge.com',
+    latitude: 28.6149,
+    longitude: 77.2090,
     openingHours: {
       monday: { open: '09:00', close: '18:00' },
       tuesday: { open: '09:00', close: '18:00' },
@@ -119,6 +129,8 @@ export const mockBusinesses = [
     address: '987 Harmony Road, Wellness Village',
     phone: '+1 (555) 678-9012',
     email: 'contact@zenwellnesscenter.com',
+    latitude: 28.6179,
+    longitude: 77.2295,
     openingHours: {
       monday: { open: '06:00', close: '21:00' },
       tuesday: { open: '06:00', close: '21:00' },
