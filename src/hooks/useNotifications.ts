@@ -16,6 +16,12 @@ export const useNotifications = () => {
     if (Notification.permission === 'granted') {
       notificationService.getToken().then(setToken);
     }
+
+    // Check for stored token
+    const storedToken = localStorage.getItem('fcmToken');
+    if (storedToken) {
+      setToken(storedToken);
+    }
   }, []);
 
   const requestPermission = async () => {

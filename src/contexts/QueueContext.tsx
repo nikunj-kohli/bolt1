@@ -29,6 +29,8 @@ export interface Business {
   address: string;
   phone: string;
   email: string;
+  latitude?: number;
+  longitude?: number;
   openingHours: {
     [key: string]: { open: string; close: string; closed?: boolean };
   };
